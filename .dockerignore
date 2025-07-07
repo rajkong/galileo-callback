@@ -1,0 +1,9 @@
+.idea
+.gitignore
+venv
+scratch
+build
+.env
+certificate.pem
+
+
