@@ -4,4 +4,5 @@ build
 scratch/
 .env
 certificate.pem
-
+*/__pycache__/
+*.pyc

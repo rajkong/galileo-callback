@@ -1,5 +1,9 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 from datetime import datetime
+from typing import Optional
+
+
+
 
 
 class AccessTokenData(BaseModel):
@@ -7,10 +11,15 @@ class AccessTokenData(BaseModel):
     refresh_token: str
     expires_in: int
     token_type: str
-    timestamp: datetime
+    expires_at_time_seconds: float
+
 
 # Pydantic model for token data
 class TokenData(BaseModel):
     code: str
-    access_token: AccessTokenData|None = None
+    token: Optional[AccessTokenData] = None
 
+
+class RefreshTokenRequest(BaseModel):
+    refresh_token: str
+    client_id: str
